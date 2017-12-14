@@ -11,17 +11,18 @@
             <tr>
               <th>Index</th>
               <th>Word</th>
-              <th>Phonetic</th>
+              <th>Phonetic US</th>
+              <th>Phonetic UK</th>
               <th>Pronoun</th>
               <th>#Pronouns</th>
-              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(w,index) in wordPageList" :key="w.word">
               <td>{{(curPage-1)*10 + index + 1}}</td>
               <td>{{w.word}}</td>
-              <td>{{w.phoneticSymbol?w.phoneticSymbol:'N/A'}}</td>
+              <td>[{{w.phonetic_us}}]</td>
+              <td>[{{w.phonetic_uk}}]</td>
               <td>
                 <a class="button is-success is-small" @click="playPronoun(w.pronouns[0])" v-if="w.pronouns.length" title="Play">
                   <span class="icon is-small">
@@ -30,13 +31,6 @@
                 </a>
               </td>
               <td>{{w.pronouns.length}}</td>
-              <td>
-                <a class="button is-danger is-outlined" title="Remove this word" @click="removeWord(w.word)">
-                  <span class="icon">
-                    <i class="fa fa-trash"></i>
-                  </span>
-                </a>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -116,15 +110,6 @@ export default {
           this.newWord = ''
         })
       }
-    },
-    removeWord (word) {
-      this.axios.delete('/words', {word: word}).then(response => {
-        if (response.status !== 200) {
-          console.log(`Failed to remove word ${word}`)
-        } else {
-          this.wordList = this.wordList.filter((w) => w.word !== word)
-        }
-      })
     },
     playPronoun (pronounObj) {
       this.audioPlayer.src = pronounObj.audioPath
