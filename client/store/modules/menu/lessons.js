@@ -17,7 +17,8 @@ export default {
         link: 'lessons/LessonList.vue'
       },
       component: lazyLoading('lessons/LessonList')
-    }, {
+    },
+    {
       name: '课程系列列表',
       path: '/lessons/series',
       meta: {
@@ -26,7 +27,8 @@ export default {
         link: 'lessons/Series.vue'
       },
       component: lazyLoading('lessons/Series')
-    }, {
+    },
+    {
       name: '媒体文件管理',
       path: '/lessons/media',
       meta: {
@@ -35,7 +37,8 @@ export default {
         link: 'lessons/Media.vue'
       },
       component: lazyLoading('lessons/Media')
-    }, {
+    },
+    {
       name: '单词管理',
       path: '/lessons/words',
       meta: {

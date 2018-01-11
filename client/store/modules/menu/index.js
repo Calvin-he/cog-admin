@@ -1,5 +1,5 @@
 import * as types from '../../mutation-types'
-// import lazyLoading from './lazyLoading'
+import lazyLoading from './lazyLoading'
 // import charts from './charts'
 // import uifeatures from './uifeatures'
 // import components from './components'
@@ -35,7 +35,17 @@ const state = {
     // uifeatures,
     // components,
     // tables,
-    lessons
+    lessons,
+    {
+      name: '课程管理2',
+      path: '/lessonManagement',
+      meta: {
+        auth: true,
+        icon: 'fa-book',
+        link: 'lessonManagement/index.vue'
+      },
+      component: lazyLoading('lessonManagement', true)
+    }
   ]
 }
 

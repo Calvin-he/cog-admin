@@ -5,15 +5,9 @@ const sidebar = state => state.app.sidebar
 const effect = state => state.app.effect
 const menuitems = state => state.menu.items
 const componententry = state => {
-  return state.menu.items.filter(c => c.meta && c.meta.label === 'Components')[0]
+  return state.menu.items.filter(
+    c => c.meta && c.meta.label === 'Components'
+  )[0]
 }
 
-export {
-  pkg,
-  app,
-  device,
-  sidebar,
-  effect,
-  menuitems,
-  componententry
-}
+export { pkg, app, device, sidebar, effect, menuitems, componententry }

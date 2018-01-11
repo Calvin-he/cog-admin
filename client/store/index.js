@@ -11,7 +11,7 @@ import lesson from './modules/lesson'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  strict: true,  // process.env.NODE_ENV !== 'production',
+  strict: true, // process.env.NODE_ENV !== 'production',
   actions,
   getters,
   modules: {
@@ -22,7 +22,6 @@ const store = new Vuex.Store({
   state: {
     pkg
   },
-  mutations: {
-  }
+  mutations: {}
 })
 export default store
