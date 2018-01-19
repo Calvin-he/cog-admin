@@ -267,7 +267,7 @@ export default {
       }
     },
     getPreviewUrl () {
-      return '/cogen/wechat/#/seriesintro/' + this.series._id
+      return '/wechat/#/seriesintro/' + this.series._id
     },
     openPreview () {
       window.open(this.getPreviewUrl(), 'Preview_Series_Window',
