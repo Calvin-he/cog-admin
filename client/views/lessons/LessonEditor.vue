@@ -27,7 +27,7 @@
   
     <p class="control ">
       <button type="submit" class="button is-primary" style="left: 45%" @click="submit">提交</button>
-      <button type="button" class="button is-danger pull-right" v-if="lesson._id" @click="deleteLesson">删除</button>
+      <button type="button" class="button is-danger pull-right" v-if="lesson._id" @click="deleteLesson(lesson)">删除</button>
     </p>
   </loading>
 </template>
@@ -157,8 +157,10 @@ export default {
       }
     },
 
-    deleteLesson () {
-
+    deleteLesson (lesson) {
+      this.$store.dispatch('deleteLesson', lesson).then(() => {
+        console.log(`Lesson '${lesson.title}' has deleted.`)
+      })
     },
 
     isEmptyString (v) {

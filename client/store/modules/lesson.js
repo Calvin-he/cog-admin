@@ -20,7 +20,7 @@ const actions = {
   },
 
   deleteLesson ({commit}, lesson) {
-    // TODO
+    return Vue.axios.delete('/lessons/' + lesson._id).then((response) => commit('DELETELESSON', lesson))
   },
 
   listSeries ({ commit }) {
@@ -84,6 +84,10 @@ const mutations = {
       }
     }
     return found
+  },
+
+  DELETELESSON (state, lesson) {
+    state.lessonList = state.lessonList.filter(v => v._id !== lesson._id)
   },
 
   LISTOFLESSONS (state, lessons) {
