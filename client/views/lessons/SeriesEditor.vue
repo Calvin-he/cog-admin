@@ -153,14 +153,18 @@ export default {
         bannerPath: this.series.bannerPath,
         errors: {}
       }
-      let selected = []
       let unselected = []
       for (let item of this.$store.state.lesson.lessonList) {
         let found = this.series.lessonList.find(id => item._id === id)
-        if (found != null) {
-          selected.push(item)
-        } else {
+        if (found == null) {
           unselected.push(item)
+        }
+      }
+      let selected = []
+      for (let lid of this.series.lessonList) {
+        let item = this.$store.state.lesson.lessonList.find(les => lid === les._id)
+        if (item != null) {
+          selected.push(item)
         }
       }
       this.ctrl_lessonList = {
